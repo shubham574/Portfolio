@@ -1,0 +1,4 @@
+[33m07d4cff[m[33m ([m[1;36mHEAD[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{0}: pull origin main --rebase (start): checkout 07d4cff4e955bc87d56d7a13ac4ebf8df12c61b8
+[33m1ee99ee[m[33m ([m[1;32mmain[m[33m)[m HEAD@{1}: Branch: renamed refs/heads/main to refs/heads/main
+[33m1ee99ee[m[33m ([m[1;32mmain[m[33m)[m HEAD@{3}: commit: Landing Page and navigation
+[33m052737d[m HEAD@{4}: commit (initial): Initial commit from Create Next App

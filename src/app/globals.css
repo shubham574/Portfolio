@@ -1,0 +1,154 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+
+:root {
+  --bg: #fff;
+  --fg: #0a0a0a;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html, body, * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "TWK Lausanne";
+  color: var(--fg);
+}
+
+#section2{
+  position: relative;
+  perspective: 3000px;
+}
+.rotatetext{
+  transform-origin: 100% 70%;
+}
+
+
+.letter,
+.word,
+.line {
+  position: relative;
+  display: inline-block;
+  will-change: transform;
+}
+
+.revealer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100svh;
+  transform-origin: center top;
+  background-color: var(--fg);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Transition resets */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none !important;
+}
+
+::view-transition-group(root) {
+  z-index: auto !important;
+}
+
+::view-transition-image-pair(root) {
+  isolation: isolate;
+  will-change: clip-path;
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 1000;
+  animation: none !important;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+  animation: none !important;
+}
+
+/* ✅ Responsive fixes */
+@media (max-width: 1024px) {
+  .work .projects {
+    width: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  .home .header h1 {
+    font-size: 18vw; /* prevent text overflow */
+  }
+
+  .work {
+    padding: 8em 1em;
+  }
+
+  .work .projects {
+    width: 100%;
+    gap: 2em;
+  }
+
+  .studio,
+  .contact {
+    flex-direction: column;
+    padding: 8em 1em;
+  }
+}
+
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient-move {
+  animation: gradient-move 4s ease infinite;
+}
+
+@theme inline {
+  --animate-scroll: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
+
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { transform: scale(1); opacity: 0.1; }
+  50% { transform: scale(1.05); opacity: 0.2; }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 6s ease-in-out infinite;
+}
+
+.line-clamp-6 {
+  display: -webkit-box;
+  -webkit-line-clamp: 9;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+
